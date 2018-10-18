@@ -8,7 +8,7 @@ function copyBot() {
   
   //貼り付ける間隔を決める。
   var diffNum = sheet.getRange("B6").getValue();
-  Logger.log("diffNumは%sです。",diffNum);
+  Logger.log("貼り付ける間隔は%sです。",diffNum);
   //何回コピペするか
   var endNum = sheet.getRange("B9").getValue();
   Logger.log("コピペ回数は%sです。",endNum);
