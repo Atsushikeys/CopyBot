@@ -2,19 +2,23 @@ function copyBot() {
   //Spreadsheetオブジェクトを取得
   var sheet = SpreadsheetApp.getActiveSheet();
   
-  //貼り付ける間隔diffNumを定義。デフォルトは1行おきなので2とする。
+  //コピペする前にC列を初期化
+  var lastRowToCopy = sheet.getLastRow();
+  sheet.getRange(3, 3, lastRowToCopy).clearContent();
+  
+  //貼り付ける間隔を決める。
   var diffNum = sheet.getRange("B6").getValue();
-  
+  Logger.log("diffNumは%sです。",diffNum);
   //何回コピペするか
-  var endNum = sheet.getRange("B6").getValue();
-  
+  var endNum = sheet.getRange("B9").getValue();
+  Logger.log("コピペ回数は%sです。",endNum);
   //コピー元を取得
-  var copyFrom = sheet.getRange("B9").getValue();
+  var copyFrom = sheet.getRange("B3").getValue();
+  Logger.log("コピー元データは「%s」",copyFrom);
 
-  //コピペする前に値が入っていた場合、消去
   
-  
-  for(var i = 3; i < endNum ; i+=diffNum){
+  //値を指定した間隔で繰り返しSet
+  for(var i = 3; i < diffNum * endNum ; i+=diffNum){
     Logger.log("現在の行は%s行目で、入力された値は%sです。",i,copyFrom);
     var copyTo = sheet.getRange(i, 3).setValue(copyFrom);
     
