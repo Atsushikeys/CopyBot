@@ -19,7 +19,7 @@ function copyBot() {
   
   //値を指定した間隔で繰り返しSet
   for(var i = 3; i < diffNum * endNum ; i+=diffNum){
-    Logger.log("%nコピペ%s回目、現在の行は%s行目で %n入力された値は「%s」です。",i-2,i,copyFrom);
+    Logger.log("%nコピペ%s回目%n現在の行は%s行目で %n入力された値は「%s」です。",i-2,i,copyFrom);
     var copyTo = sheet.getRange(i, 3).setValue(copyFrom);
     
   }
