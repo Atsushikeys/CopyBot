@@ -4,7 +4,7 @@ function copyBot() {
   
   //コピペする前にC列を初期化
   var lastRowToCopy = sheet.getLastRow();
-  sheet.getRange(3, 3, lastRowToCopy).clearContent();
+  sheet.getRange(3, 3, lastRowToCopy).clear();
   
   //貼り付ける間隔を決める。
   var diffNum = sheet.getRange("B6").getValue();
